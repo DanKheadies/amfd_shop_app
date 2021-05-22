@@ -29,8 +29,8 @@ class Product with ChangeNotifier {
     final oldStatus = isFavorite;
     isFavorite = !isFavorite;
     notifyListeners();
-    final url =
-        'https://amfd-shop-app-default-rtdb.firebaseio.com/userFavorites/$userId/$id.json?auth=$token';
+    final url = Uri.parse(
+        'https://amfd-shop-app-default-rtdb.firebaseio.com/userFavorites/$userId/$id.json?auth=$token');
     try {
       final response = await http.put(
         url,
